@@ -37,7 +37,7 @@ def count_tree_encounter(tree_lines, right_step, down_step):
         line += down_step
         #print("new line is: ", line)
         position += right_step
-        print("new positions that we are going to look is: ", position)
+        print("new position and line that we are going to look is: ", position, "and", line)
     return tree_encounters
 
 
