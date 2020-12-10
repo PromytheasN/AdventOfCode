@@ -11,7 +11,7 @@ def data_extraction():
 
     for line in map_input:
         line_count += 1
-        tree_lines.append(line.strip() * (line_count))
+        tree_lines.append(line.strip() * (line_count // 2))
 
     map_input.close()
 
