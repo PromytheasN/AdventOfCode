@@ -18,24 +18,44 @@ def data_extraction():
     return tree_lines
 
 
-def count_tree_encounter(tree_lines):
+def count_tree_encounter(tree_lines, right_step, down_step):
+    # Calculate tree encounters
 
     tree_encounters = 0
-    position = 3
-    line = 1
+    position = right_step
+    line = down_step
 
-    # While position < than length of last line - 3 and line within tree_map
-    while position <= len(tree_lines[len(tree_lines) - 3]) and line < len(tree_lines):
-        
+    # While position < than length of last line - right_step + 1 and line within tree_map length
+    while line <= len(tree_lines) - down_step:
+
+        print("Current position we are looking and line is: ", position, line)
         if tree_lines[line][position] == "#":
             tree_encounters += 1
-        line += 1
-        position += 3
+            print("we found one more, total: ", tree_encounters)
+            print("Line we found it is: ", line + down_step)
 
+        line += down_step
+        #print("new line is: ", line)
+        position += right_step
+        print("new positions that we are going to look is: ", position)
     return tree_encounters
 
 
 tree_lines = data_extraction()
-count = count_tree_encounter(tree_lines)
+countr3d1 = count_tree_encounter(tree_lines, 3, 1)
+countr1d1 = count_tree_encounter(tree_lines, 1, 1)
+print("R1D1 : ", countr1d1)
+countr5d1 = count_tree_encounter(tree_lines, 5, 1)
+print("R5D1", countr5d1)
+countr7d1 = count_tree_encounter(tree_lines, 7, 1)
+print("R7D1", countr7d1)
+countr1d2 = count_tree_encounter(tree_lines, 1, 2)
+print("R1D2", countr1d2)
 
-print(count)
+print("The number of encounters for right 3 down 1 are: ", countr3d1)
+
+product = countr1d1 * countr1d2 * countr3d1 * countr5d1 * countr7d1
+
+print("The product of all encounters is: ", product)
+
+# not 5690521200, 4893848232, 5007658656
