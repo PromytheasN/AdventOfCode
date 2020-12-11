@@ -44,9 +44,11 @@ def collect_valid_pass(sep_passports):
 def create_field_list(valid_passports):
 
     sep2_val_pass = []
+
     # Create a list of data, of lists of passports
     sep_val_pass = [num.split() for num in valid_passports]
-    # Create a kust if kusts if data, of list of passports
+
+    # Create a list of lists of data, of list of passports
     for num in range(len(sep_val_pass)):
         sep2_val_pass.append([num.split(":") for num in sep_val_pass[num]])
 
