@@ -71,13 +71,8 @@ def detect_valid_pass(potential_valid):
     for num in range(len(potential_valid)):
 
         # Field paramerts, initiated as False.
-        ecl = False
-        byr = False
-        iyr = False
-        eyr = False
-        hgt = False
-        hcl = False
-        pid = False
+        ecl, byr, iyr, eyr, hgt, hcl, pid = (False, False, False,
+                                             False, False, False, False)
 
         for num2 in range(len(potential_valid[num])):
 
